@@ -23,21 +23,33 @@ print('All set up')
 
 #defining callback function
 def myCallback(turnOnLED):
-  if GPIO.input(BUTTON1)==1:
-    turnOnLED = LED1
-  elif GPIO.input(BUTTON2)==1:
-    turnOnLED = LED2
-  pwm=GPIO.PWM(turnOnLED, f)
-  dc=0
-  pwm.start(dc)
-  #creating triangular waveform of 1 Hz
-  while 1:
-    for dc in range(101):
-      pwm.ChangeDutyCycle(dc)
-      sleep (0.005)
-    for dc in range(101):
-      pwm.ChangeDutyCycle(100-dc)
-      sleep(0.005)
+  if turnOnLED == BUTTON1:
+    pwm=GPIO.PWM(LED1, f)
+    dc=0
+    pwm.start(dc)
+    #creating triangular waveform of 1 Hz
+    while 1:
+      for dc in range(101):
+        pwm.ChangeDutyCycle(dc)
+        sleep (0.005)
+      for dc in range(101):
+        pwm.ChangeDutyCycle(100-dc)
+        sleep(0.005)
+    pwm.stop()
+  if turnOnLED == BUTTON2:
+    pwm=GPIO.PWM(LED2, f)
+    dc=0
+    pwm.start(dc)
+    #creating triangular waveform of 1 Hz
+    while 1:
+      for dc in range(101):
+        pwm.ChangeDutyCycle(dc)
+        sleep (0.005)
+      for dc in range(101):
+        pwm.ChangeDutyCycle(100-dc)
+        sleep(0.005)
+    pwm.stop()
+  
 
 GPIO.add_event_detect(BUTTON1, GPIO.RISING, callback= myCallback, bouncetime=10)
 GPIO.add_event_detect(BUTTON2, GPIO.RISING, callback= myCallback,bouncetime=10)
