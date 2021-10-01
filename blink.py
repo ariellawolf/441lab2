@@ -28,26 +28,25 @@ def myCallback(turnOnLED):
     dc=0
     pwm.start(dc)
     #creating triangular waveform of 1 Hz
-    while 1:
-      for dc in range(101):
-        pwm.ChangeDutyCycle(dc)
-        sleep (0.005)
-      for dc in range(101):
-        pwm.ChangeDutyCycle(100-dc)
-        sleep(0.005)
+    for dc in range(101):
+      pwm.ChangeDutyCycle(dc)
+      sleep (0.005)
+    for dc in range(101):
+      pwm.ChangeDutyCycle(100-dc)
+      sleep(0.005)
     pwm.stop()
   if turnOnLED == BUTTON2:
     pwm=GPIO.PWM(LED2, f)
     dc=0
     pwm.start(dc)
     #creating triangular waveform of 1 Hz
-    while 1:
-      for dc in range(101):
-        pwm.ChangeDutyCycle(dc)
-        sleep (0.005)
-      for dc in range(101):
-        pwm.ChangeDutyCycle(100-dc)
-        sleep(0.005)
+    
+    for dc in range(101):
+      pwm.ChangeDutyCycle(dc)
+      sleep (0.005)
+    for dc in range(101):
+      pwm.ChangeDutyCycle(100-dc)
+      sleep(0.005)
     pwm.stop()
   
 
