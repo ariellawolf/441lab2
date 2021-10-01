@@ -34,7 +34,7 @@ def myCallback(turnOnLED):
     for dc in range(101):
       pwm.ChangeDutyCycle(dc)
       sleep (0.005)
-    for dc in range(101)
+    for dc in range(101):
       pwm.ChangeDutyCycle(100-dc)
       sleep(0.005)
 
