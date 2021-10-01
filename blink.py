@@ -27,7 +27,8 @@ def myCallback(turnOnLED):
     turnOnLED = LED1
   elif GPIO.input(BUTTON2)==1:
     turnOnLED = LED2
-  GPIO.PWM(turnOnLED, f)
+  pwm=GPIO.PWM(turnOnLED, f)
+  dc=0
   pwm.start(dc)
   #creating triangular waveform of 1 Hz
   while 1:
@@ -38,12 +39,14 @@ def myCallback(turnOnLED):
       pwm.ChangeDutyCycle(100-dc)
       sleep(0.005)
 
+GPIO.add_event_detect(BUTTON1, GPIO.BOTH, callback= myCallback, bouncetime=100)
+GPIO.add_event_detect(BUTTON2, GPIO.BOTH, callback= myCallback,bouncetime=100)
 
 try:
+  
   while True:
     print('the light is flashing')
-    gpio.add_event_detect(BUTTON1, gpio.BOTH, callback= myCallback, bouncetime=100)
-    gpio.add_event_detect(BUTTON2, gpio.BOTH, callback= myCallback,bouncetime=100)
+    
     #LED3 is blinking constantly at 1Hz
     GPIO.output(LED3,0)
     sleep(0.5)
