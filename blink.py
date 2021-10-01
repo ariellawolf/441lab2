@@ -39,8 +39,8 @@ def myCallback(turnOnLED):
       pwm.ChangeDutyCycle(100-dc)
       sleep(0.005)
 
-GPIO.add_event_detect(BUTTON1, GPIO.BOTH, callback= myCallback, bouncetime=100)
-GPIO.add_event_detect(BUTTON2, GPIO.BOTH, callback= myCallback,bouncetime=100)
+GPIO.add_event_detect(BUTTON1, GPIO.RISING, callback= myCallback, bouncetime=10)
+GPIO.add_event_detect(BUTTON2, GPIO.RISING, callback= myCallback,bouncetime=10)
 
 try:
   
