@@ -7,8 +7,10 @@ p= 24
 #f= 1
 #dc= 50
 GPIO.setup(p, GPIO.OUT)
+print('code is running')
 
 while True:
+  print('the light is flashing')
   GPIO.output(p,0)
   sleep(0.5)
   GPIO.output(p,1)
