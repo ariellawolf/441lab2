@@ -15,6 +15,8 @@ while True:
   sleep(0.5)
   GPIO.output(p,1)
   sleep(0.5)
+
+GPIO.cleanup()
 '''
 #pwm = GPIO.PWM(print)
 
