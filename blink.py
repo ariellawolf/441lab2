@@ -51,8 +51,8 @@ def myCallback(turnOnLED):
     pwm.stop()
   
 
-GPIO.add_event_detect(BUTTON1, GPIO.RISING, callback= myCallback, bouncetime=10)
-GPIO.add_event_detect(BUTTON2, GPIO.RISING, callback= myCallback,bouncetime=10)
+GPIO.add_event_detect(BUTTON1, GPIO.RISING, callback= myCallback, bouncetime=100)
+GPIO.add_event_detect(BUTTON2, GPIO.RISING, callback= myCallback,bouncetime=100)
 
 try:
   while True:
